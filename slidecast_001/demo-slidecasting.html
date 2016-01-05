@@ -1,0 +1,71 @@
+<!DOCTYPE html encoding="utf-8">
+<html>
+<head>
+<title>slidecast.example</title>
+<link href="../framework/css/slide.css" media="screen" rel="stylesheet"
+    type="text/css" />
+    
+ <script type="text/javascript">
+    //SlideTiming Syntax - [slidenum, starttime, endtime]
+    var SlideTiming = [
+            [0,1,3],
+            [1,3,5],
+            [2,5,6],
+            [3,6,7]       
+            ];
+    </script>
+    <script type="text/javascript"
+        src="../framework/js/jquery-1.6.min.js"></script>
+    <script type="text/javascript"
+        src="../framework/js/popcorn-complete.min.js"></script>
+    <script type="text/javascript"
+        src="../framework/js/popcorn.slide.js"></script>
+    <script type="text/javascript" src="../framework/js/slidecast.js"></script>
+    <script type="text/javascript">
+        (function($) {
+            // VERTICALLY ALIGN FUNCTION
+            $.fn.vAlign = function() {
+                return this.each(function(i) {
+                    var ah = $(this).height();
+                    var ph = $(this).parent().height();
+                    var mh = Math.ceil((ph - ah) / 2);
+                    $(this).css('margin-top', mh);
+                });
+            };
+        })(jQuery);
+    </script>    
+</head>
+<body>
+    <div align="center">
+
+        <h1>Slidecast Beispiel</h1>
+        <div class="presentation">
+
+            <div id="slide0" class="slide">
+                <h1>Vorspann</h1>
+                <p>Vorstellung der Präsentation</p>
+            </div>
+
+            <div id="slide1" class="slide">
+                <h1>Folie1</h1>
+            </div>
+
+            <div id="slide2" class="slide">
+                <h1>Folie2</h1>
+            </div>
+
+            <div id="slide3" class="slide">
+                <img src="files/Konzept.jpeg" style="height: 270px"></img>
+            </div>
+        </div>
+        <div>
+            <audio id='audiofile' controls preload='none'
+                style="width: 600px">
+                <source id='mp3' src="files/allefolien.mp3">
+                <p>Ihr Browser unterstützt das HTML5 Video Element
+                    nicht :(</p>
+            </audio>
+        </div>
+    </div>
+</body>
+</html>
