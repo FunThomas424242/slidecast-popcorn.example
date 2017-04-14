@@ -9,26 +9,7 @@ function HideSlide(slidenum){
 
 }
 
-// $(function(){
-
-//     AllSlides = $(".presentation .slide");
-//     AllSlides.hide();
-//     AllSlides.vAlign();
-   
-//     var popcorn;
-//     for (var i = 0; i < SlideTiming.length; i++){ 
-//         popcorn = Popcorn( '#'+SlideTiming[i][3]);
-//         popcorn.slide({
-//             start: SlideTiming[i][1], // seconds
-//             end: SlideTiming[i][2], // seconds
-//             slidenum: SlideTiming[i][0]
-//         })  
-//         popcorn.play();
-//     }   
-// })  ;
-
 $(function(){
-
     AllSlides = $(".presentation .slide");
     AllSlides.hide();
     AllSlides.vAlign();
@@ -37,6 +18,7 @@ $(function(){
 })  ;
 
 function show( slidenum ){
+    AllSlides.hide();
     AllMedia.hide();
     $( '#' + SlideTiming[ slidenum ][ 3 ] ).show();
     play( slidenum );
@@ -46,9 +28,9 @@ function play( slidenum ){
     var i = slidenum;
     var popcorn = Popcorn( '#'+SlideTiming[i][3]);
     popcorn.slide({
-            start: SlideTiming[i][1], // seconds
+            start: 0, // seconds
             end: SlideTiming[i][2], // seconds
-            slidenum: SlideTiming[i][0]
+            slidenum: slidenum
         });
     popcorn.play();
 }
