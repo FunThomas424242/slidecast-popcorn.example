@@ -3,24 +3,13 @@
 <head>
     <title>slidecast.example</title>
     <meta charset="utf-8">
-    <link href="../framework/css/slide.css" media="screen" rel="stylesheet" type="text/css" />
-    <script type="text/javascript">
-        //SlideTiming Syntax - [slidenum, starttime, endtime]
-        var SlideTiming = [
-            ['Vorspann',0,6,'vorspann'],
-            ['Folie 1',0,3,'folie1'],
-            ['Folie 2',0,3,'folie2'],
-            ['Folie 3',0,2,'folie3']       
-        ];
-    </script>
+
     <script type="text/javascript"
             src="../framework/js/jquery-1.6.min.js"></script>
     <script type="text/javascript"
             src="../framework/js/popcorn-complete.min.js"></script>
     <script type="text/javascript"
             src="../framework/js/popcorn.slide.js"></script>
-    <script type="text/javascript" 
-            src="../framework/js/slidecast.multi.js"></script>
     <script type="text/javascript">
         (function($) {
             // VERTICALLY ALIGN FUNCTION
@@ -33,7 +22,19 @@
                 });
             };
         })(jQuery);
-    </script>       
+    </script>  
+    <script type="text/javascript">
+        //SlideTiming Syntax - [slidenum, starttime, endtime]
+        var SlideTiming = [
+            ['Vorspann',0,6,'vorspann'],
+            ['Folie 1',0,3,'folie1'],
+            ['Folie 2',0,3,'folie2'],
+            ['Folie 3',0,2,'folie3']       
+        ];
+    </script>
+    <link href="../framework/css/slide.css" media="screen" rel="stylesheet" type="text/css" />     
+    <script type="text/javascript" 
+            src="../framework/js/slidecast.multi.js"></script>
 </head>
 <body>
     <div align="center" class="main">
