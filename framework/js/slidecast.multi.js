@@ -29,7 +29,7 @@ function play( slidenum ){
     var popcorn = Popcorn( '#'+SlideTiming[i][3]);
     popcorn.slide({
             start: 0, // seconds
-            end: SlideTiming[i][2], // seconds
+            end: SlideTiming[i][2] +1, // seconds
             slidenum: slidenum
         });
     popcorn.play();

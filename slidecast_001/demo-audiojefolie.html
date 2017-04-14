@@ -9,10 +9,10 @@
  <script type="text/javascript">
     //SlideTiming Syntax - [slidenum, starttime, endtime]
     var SlideTiming = [
-            [0,0,6,'audio1'],
-            [1,0,6,'audio2'],
-            [2,0,6,'audio3'],
-            [3,0,6,'audio4']       
+            ['Vorspann',0,6,'vorspann'],
+            ['Folie 1',0,3,'folie1'],
+            ['Folie 2',0,3,'folie2'],
+            ['Folie 3',0,2,'folie3']       
             ];
     </script>
     <script type="text/javascript"
@@ -68,25 +68,25 @@
         </div>
 
         <div>
-            <audio id='audio1' controls preload='none'
+            <audio id='vorspann' controls preload='none'
                 style="width: 600px">
                 <source id='audio1mp3' src="files/allefolien.mp3">
                 <p>Ihr Browser unterstützt das HTML5 Video Element
                     nicht :(</p>
             </audio>
-            <audio id='audio2' controls preload='none'
+            <audio id='folie1' controls preload='none'
                 style="width: 600px">
                 <source id='audio2mp3' src="files/folie1.mp3">
                 <p>Ihr Browser unterstützt das HTML5 Video Element
                     nicht :(</p>
             </audio>
-            <audio id='audio3' controls preload='none'
+            <audio id='folie2' controls preload='none'
                 style="width: 600px">
                 <source id='audio3mp3' src="files/folie2.mp3">
                 <p>Ihr Browser unterstützt das HTML5 Video Element
                     nicht :(</p>
             </audio>
-            <audio id='audio4' controls preload='none'
+            <audio id='folie3' controls preload='none'
                 style="width: 600px">
                 <source id='audio4mp3' src="files/folie3.mp3">
                 <p>Ihr Browser unterstützt das HTML5 Video Element
@@ -97,6 +97,6 @@
 </body>
 
 <script type="text/javascript">
-   //window.onload = function () { show( 0 ); }
+   window.onload = function () { show( 0 ); }
 </script>
 </html>
