@@ -35,10 +35,11 @@
         })(jQuery);
     </script>       
 </head>
-<body>
-    <div align="center">
+<body align="center">
+    <div class="main">
 
         <h1>Slidecast Beispiel</h1>
+        
         <div class="presentation">
 
             <div class="slide">
@@ -61,14 +62,14 @@
             </div>
         </div>
 
-        <div>
+        <div class="navigation">
             <button onclick="show(0)">1</button>
             <button onclick="show(1)">2</button>
             <button onclick="show(2)">3</button>
             <button onclick="show(3)">4</button>
         </div>
 
-        <div>
+        <div class="audio">
             <audio id='vorspann' controls preload='none'>
                 <source id='audio1mp3' src="files/allefolien.mp3">
                 <p>Ihr Browser unterstützt das HTML5 Video Element nicht :(</p>
