@@ -18,8 +18,8 @@
         
       }
 
-      function testLog() {
-        alert('Hallo log');
+      function testLog( value ) {
+        alert('Zeige Folie ' + value);
       }
     },
 
