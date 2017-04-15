@@ -11,14 +11,7 @@
       var vm = this;
       vm.testLog = testLog;
       vm.aktivieren = aktivieren;
-      vm.timing =
-          [
-            ['Vorspann', 0, 6, 'vorspann'],
-            ['Folie 1', 0, 3, 'folie1'],
-            ['Folie 2', 0, 3, 'folie2'],
-            ['Folie 3', 0, 2, 'folie3']
-          ];
-
+    
       aktivieren();
 
       function aktivieren() {
