@@ -1,20 +1,22 @@
 <!DOCTYPE html encoding="utf-8">
-<html>
+<html ng-app="slidecastApp">
+
 <head>
     <title>slidecast.example</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
 
-    <script type="text/javascript"
-            src="../framework/js/jquery-1.6.min.js"></script>
-    <script type="text/javascript"
-            src="../framework/js/popcorn-complete.min.js"></script>
-    <script type="text/javascript"
-            src="../framework/js/popcorn.slide.js"></script>
+
+
+    <script type="text/javascript" src="../framework/js/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="../framework/js/popcorn-complete.min.js"></script>
+    <script type="text/javascript" src="../framework/js/popcorn.slide.js"></script>
     <script type="text/javascript">
-        (function($) {
+        (function ($) {
             // VERTICALLY ALIGN FUNCTION
-            $.fn.vAlign = function() {
-                return this.each(function(i) {
+            $.fn.vAlign = function () {
+                return this.each(function (i) {
                     var ah = $(this).height();
                     var ph = $(this).parent().height();
                     var mh = Math.ceil((ph - ah) / 2);
@@ -22,20 +24,23 @@
                 });
             };
         })(jQuery);
-    </script>  
+    </script>
     <script type="text/javascript">
         //SlideTiming Syntax - [slidenum, starttime, endtime]
         var SlideTiming = [
-            ['Vorspann',0,6,'vorspann'],
-            ['Folie 1',0,3,'folie1'],
-            ['Folie 2',0,3,'folie2'],
-            ['Folie 3',0,2,'folie3']       
+            ['Vorspann', 0, 6, 'vorspann'],
+            ['Folie 1', 0, 3, 'folie1'],
+            ['Folie 2', 0, 3, 'folie2'],
+            ['Folie 3', 0, 2, 'folie3']
         ];
+        window.slides = SlideTiming;
     </script>
-    <link href="../framework/css/slide.css" media="screen" rel="stylesheet" type="text/css" />     
-    <script type="text/javascript" 
-            src="../framework/js/slidecast.multi.js"></script>
+    <link href="../framework/css/slide.css" media="screen" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../framework/js/slidecast.multi.js"></script>
+    <script type="text/javascript" src="../framework/components/slidecast/slidecast.js"></script>
+    <script type="text/javascript" src="../framework/components/slidecast/slidebar.js"></script>
 </head>
+
 <body>
     <div align="center" class="main">
 
@@ -63,12 +68,19 @@
             </div>
         </div>
 
-        <div class="navigation">
+        <slidebar geheZu="alert('Hallo')" slides="[
+            ['Vorspann', 0, 6, 'vorspann'],
+            ['Folie 1', 0, 3, 'folie1'],
+            ['Folie 2', 0, 3, 'folie2'],
+            ['Folie 3', 0, 2, 'folie3']
+        ]"></slidebar>
+
+        <!--<div class="navigation">
             <button onclick="show(0)">1</button>
             <button onclick="show(1)">2</button>
             <button onclick="show(2)">3</button>
             <button onclick="show(3)">4</button>
-        </div>
+        </div>-->
 
         <div class="audio">
             <audio id='vorspann' controls preload='none'>
@@ -92,6 +104,7 @@
 </body>
 
 <script type="text/javascript">
-   window.onload = function () { show( 0 ); }
+        window.onload = function () { show(0); }
 </script>
+
 </html>
