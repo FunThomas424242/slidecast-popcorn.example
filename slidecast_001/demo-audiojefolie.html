@@ -1,5 +1,5 @@
 <!DOCTYPE html encoding="utf-8">
-<html ng-app="slidecastApp">
+<html ng-app="slidebarApp">
 
 <head>
     <title>slidecast.example</title>
@@ -37,7 +37,7 @@
     </script>
     <link href="../framework/css/slide.css" media="screen" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../framework/js/slidecast.multi.js"></script>
-    <script type="text/javascript" src="../framework/components/slidecast/slidecast.js"></script>
+    
     <script type="text/javascript" src="../framework/components/slidecast/slidebar.js"></script>
 </head>
 
@@ -68,19 +68,24 @@
             </div>
         </div>
 
-        <slidebar geheZu="alert('Hallo')" slides="[
-            ['Vorspann', 0, 6, 'vorspann'],
-            ['Folie 1', 0, 3, 'folie1'],
-            ['Folie 2', 0, 3, 'folie2'],
-            ['Folie 3', 0, 2, 'folie3']
-        ]"></slidebar>
+        <slidecast>
 
-        <!--<div class="navigation">
-            <button onclick="show(0)">1</button>
-            <button onclick="show(1)">2</button>
-            <button onclick="show(2)">3</button>
-            <button onclick="show(3)">4</button>
-        </div>-->
+            <slidebar geheZu="alert('Hallo')" slides="[
+                ['Vorspann', 0, 6, 'vorspann'],
+                ['Folie 1', 0, 3, 'folie1'],
+                ['Folie 2', 0, 3, 'folie2'],
+                ['Folie 3', 0, 2, 'folie3']
+            ]"></slidebar>
+
+            <!--<div class="navigation">
+                <button onclick="show(0)">1</button>
+                <button onclick="show(1)">2</button>
+                <button onclick="show(2)">3</button>
+                <button onclick="show(3)">4</button>
+            </div>-->
+
+        </slidecast>
+
 
         <div class="audio">
             <audio id='vorspann' controls preload='none'>

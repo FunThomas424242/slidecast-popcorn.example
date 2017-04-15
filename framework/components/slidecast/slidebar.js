@@ -3,40 +3,35 @@
 
   var modul = angular.module('slidebarApp', []);
 
-  angular.module('slidebarApp')
-    .component('slidecast', {
-
-      controller: function () {
-        var vm = this;
-        vm.testLog = testLog;
-
-        function testLog() {
-          alert('Hallo log');
-        }
+  modul.component('slidecast', {
+    controller: function SlidecastController() {
+      this.testLog = function testLog() {
+        alert('Hallo log');
       }
+    }
 
-    });
+  });
 
-  angular.module('slidebarApp')
-    .component('slidebar', {
-      templateUrl: '../framework/components/slidecast/slidebar.html',
-      controller: 'SlidebarController',
-      bindings: {
-        geheZu: '&',
-        slides: '<'
-      }
-    })
-    .controller('SlidebarController', function () {
+  modul.component('slidebar', {
+    templateUrl: '../framework/components/slidecast/slidebar.html',
+    require: {
+      container: '^slidecast'
+    },
+    controller: function SlidebarController() {
       var vm = this;
       vm.test = test;
 
       function test() {
-        this.container.testLog();
+        vm.container.testLog();
         //vm.geheZu();
       }
-    });
+    },
+    bindings: {
+      geheZu: '&',
+      slides: '<'
+    }
 
-
+  });
 
 
 })(window.angular);
