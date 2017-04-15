@@ -4,11 +4,28 @@
   var modul = angular.module('slidebarApp', []);
 
   modul.component('slidecast', {
-    controller: function SlidecastController() {
-      this.testLog = function testLog() {
+    controller:  function SlidecastController() {
+      var vm = this;
+      vm.testLog = testLog;
+      vm.aktivieren = aktivieren;
+      vm.timing =
+          [
+            ['Vorspann', 0, 6, 'vorspann'],
+            ['Folie 1', 0, 3, 'folie1'],
+            ['Folie 2', 0, 3, 'folie2'],
+            ['Folie 3', 0, 2, 'folie3']
+          ];
+
+      aktivieren();
+
+      function aktivieren() {
+        
+      }
+
+      function testLog() {
         alert('Hallo log');
       }
-    }
+    },
 
   });
 
@@ -19,16 +36,13 @@
     },
     controller: function SlidebarController() {
       var vm = this;
-      vm.test = test;
+      vm.aktivieren = aktivieren;
 
-      function test() {
-        vm.container.testLog();
-        //vm.geheZu();
+      aktivieren();
+
+      function aktivieren(){
+
       }
-    },
-    bindings: {
-      geheZu: '&',
-      slides: '<'
     }
 
   });
