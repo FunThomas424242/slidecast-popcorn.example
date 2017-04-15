@@ -4,6 +4,9 @@
   var modul = angular.module('slidebarApp', []);
 
   modul.component('slidecast', {
+    bindings: {
+      slides: '<'
+    },
     controller:  function SlidecastController() {
       var vm = this;
       vm.testLog = testLog;
