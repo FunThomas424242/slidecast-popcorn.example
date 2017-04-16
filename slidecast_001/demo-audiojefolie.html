@@ -33,7 +33,7 @@
             ['Folie 2', 0, 3, 'folie2'],
             ['Folie 3', 0, 2, 'folie3']
         ];
-        window.slides = SlideTiming;
+        window.timing = SlideTiming;
     </script>
     <link href="../framework/css/slide.css" media="screen" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../framework/js/slidecast.multi.js"></script>
@@ -68,11 +68,12 @@
             </div>
         </div>
 
+       
         <slidecast slides=" [
-            ['Vorspann', 0, 6, 'vorspann'],
-            ['Folie 1', 0, 3, 'folie1'],
-            ['Folie 2', 0, 3, 'folie2'],
-            ['Folie 3', 0, 2, 'folie3']
+            {titel:'Vorspann', nr:0, dauer:6, file:'vorspann'},
+            {titel:'Folie 1',  nr:1, dauer:3, file:'folie1'},
+            {titel:'Folie 2',  nr:2, dauer:3, file:'folie2'},
+            {titel:'Folie 3',  nr:3, dauer:2, file:'folie3'}
           ]">
 
              <slidebar></slidebar>
@@ -104,7 +105,7 @@
 </body>
 
 <script type="text/javascript">
-        window.onload = function () { show(0); }
+        //window.onload = function () { show(0); }
 </script>
 
 </html>

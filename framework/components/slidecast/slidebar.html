@@ -1,3 +1,26 @@
-<div class="navigation">   
-    <button ng-click="$ctrl.container.testLog( $index )" data-ng-repeat="slide in $ctrl.container.slides" ng-bind="slide[0]"></button>    
+<div class="navigation">
+    <button data-ng-click="$ctrl.setzeAufErsteFolie()" 
+            data-ng-bind="$ctrl.getFolienTitel( 0 )">
+    </button>
+    
+    <button data-ng-click="$ctrl.setzeAufVorherigeFolie()" 
+            data-ng-bind="'Vorherige Folie'">
+    </button>
+
+    <select data-ng-model="$ctrl.folie" 
+            data-ng-change="$ctrl.geheZurFolie()"
+            ng-options="slide.nr as slide.titel for slide in $ctrl.container.slides"
+            >
+
+       
+
+    </select>
+    
+    <button data-ng-click="$ctrl.setzeAufNaechsteFolie()" 
+            data-ng-bind="'Nächste Folie'">
+    </button>
+
+    <button data-ng-click="$ctrl.setzeAufLetzteFolie()" 
+            data-ng-bind="$ctrl.getLetztenFolienTitel()">
+    </button>
 </div>
