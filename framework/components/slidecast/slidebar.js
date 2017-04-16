@@ -1,35 +1,7 @@
 (function (angular) {
   'use strict';
 
-  var modul = angular.module('slidebarApp', []);
-
-  modul.component('slidecast', {
-    bindings: {
-      slides: '<'
-    },
-    controller: function SlidecastController() {
-      var vm = this;
-      vm.zeigeFolie = zeigeFolie;
-      vm.aktivieren = aktivieren;
-      vm.getLastIndex = getLastIndex;
-
-      aktivieren();
-
-      function aktivieren() {
-
-      }
-
-      function getLastIndex() {
-        return this.slides.length - 1;
-      }
-
-      function zeigeFolie(folie) {
-        alert('Zeige Folie ' + folie);
-      }
-    },
-    controllerAs: "castCtrl"
-
-  });
+  var modul = angular.module('slidecastApp');
 
   modul.component('slidebar', {
     templateUrl: '../framework/components/slidecast/slidebar.html',
@@ -40,7 +12,7 @@
       this.$onInit = function () {
         this.folie = 3;
       };
-      this.$postLink = function(){
+      this.$postLink = function () {
         this.folie = 0;
       }
 
@@ -108,6 +80,8 @@
     }
 
   });
+
+  
 
 
 })(window.angular);

@@ -1,5 +1,5 @@
 <!DOCTYPE html encoding="utf-8">
-<html ng-app="slidebarApp">
+<html ng-app="slidecastApp">
 
 <head>
     <title>slidecast.example</title>
@@ -33,19 +33,22 @@
             ['Folie 2', 0, 3, 'folie2'],
             ['Folie 3', 0, 2, 'folie3']
         ];
-        window.timing = SlideTiming;
+        window.testCall = function(){
+            alert('Test');
+        };
     </script>
     <link href="../framework/css/slide.css" media="screen" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../framework/js/slidecast.multi.js"></script>
     
+    <script type="text/javascript" src="../framework/components/slidecast/slidecast.js"></script>
+    <script type="text/javascript" src="../framework/components/slidecast/slideview.js"></script>
     <script type="text/javascript" src="../framework/components/slidecast/slidebar.js"></script>
 </head>
 
 <body>
     <div align="center" class="main">
 
-        <h1>Slidecast Beispiel</h1>
-
+<!--
         <div class="presentation">
 
             <div class="slide">
@@ -66,19 +69,15 @@
                     <img src="files/Konzept.jpeg" style="height: 270px"></img>
                 </div>
             </div>
-        </div>
+        </div>-->
 
        
-        <slidecast slides=" [
+        <slidecast titel="Slidecast Beispiel" slides=" [
             ['Vorspann', 0, 6, 'vorspann'],
             ['Folie 1', 1, 3, 'folie1'],
             ['Folie 2', 2, 3, 'folie2'],
             ['Folie 3', 3, 2, 'folie3']
           ]">
-
-             <slidebar></slidebar>
-
-          
 
         </slidecast>
 
@@ -103,9 +102,5 @@
         </div>
     </div>
 </body>
-
-<script type="text/javascript">
-        //window.onload = function () { show(0); }
-</script>
 
 </html>
