@@ -12,7 +12,7 @@
         templateUrl: '../framework/components/slidecast/slideview.html',
         controller: function SlideviewController() {
 
-            this.testCall = function(){
+            this.start = function(){
                 alert('Böse: '+this.titel);
                 this.callback({text: 'Blup'});
             }

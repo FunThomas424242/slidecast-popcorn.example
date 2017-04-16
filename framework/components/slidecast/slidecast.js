@@ -7,16 +7,22 @@
         bindings: {
             titel: '@',
             slides: '<',
+            mediaArrayName: '@',
+            slidesArrayName: '@'
         },
         templateUrl: '../framework/components/slidecast/slidecast.html',
-        controller: function SlidecastController( $window ) {
+        controller: function SlidecastController($window) {
             var vm = this;
             vm.zeigeFolie = zeigeFolie;
             vm.getLastIndex = getLastIndex;
 
+
+
             this.hallo = function (text) {
                 alert('Master Hallo' + text);
-                window.show(0);
+                vm.alleMedien = window[this.mediaArrayName];
+                vm.alleFolien = window[this.slidesArrayName];
+
             }
 
             function getLastIndex() {

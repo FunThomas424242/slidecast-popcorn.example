@@ -10,7 +10,7 @@ function HideSlide(slidenum){
 }
 
 $(function(){
-    AllSlides = $(".presentation .slide");
+    AllSlides = $(".folien .slide");
     AllSlides.hide();
     AllSlides.vAlign();
     AllMedia = $("audio");
