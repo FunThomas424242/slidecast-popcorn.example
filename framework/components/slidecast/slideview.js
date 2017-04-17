@@ -12,11 +12,17 @@
         },
         transclude: true,
         templateUrl: '../framework/components/slidecast/slideview.html',
-        controller: function SlideviewController() {            
+        controller: function SlideviewController( $scope ) {                         
+            this.$onInit = function(){
+                 $scope.$on( "slidecast.startAudio", function( event, args ){
+                   vm.callback( { id: vm.slidesdata[ args ][1] });
+                 });
+            };
+        
             var vm = this;
-            
+            vm.start = start;
 
-            vm.start = function(){
+            function start (){
                 alert('Starte: '+vm.slide);
                 vm.callback( { id: vm.slidesdata[ vm.slide ][1] });
             }

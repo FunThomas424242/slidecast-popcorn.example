@@ -1,11 +1,11 @@
 (function (angular) {
     'use strict';
 
-//
-// Needs import in index.html to solve dependency 'ngSanitize'
-//
-// <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
-//
+    //
+    // Needs import in index.html to solve dependency 'ngSanitize'
+    //
+    // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
+    //
 
     var modul = angular.module('slidecastApp', ['ngSanitize']);
 
@@ -16,10 +16,10 @@
             slidesArrayName: '@'
         },
         templateUrl: '../framework/components/slidecast/slidecast.html',
-        controller: function SlidecastController($window) {
+        controller: function SlidecastController($window, $scope) {
             this.$onInit = function () {
                 this.play = window.Play;
-                this.alleFolien = window[this.slidesArrayName];
+                this.alleFolien = $window[this.slidesArrayName];
                 this.slidesNavData = getSlidesNavData();
                 this.slidesViewData = getSlidesViewData();
                 this.folie = 0;
@@ -34,11 +34,7 @@
             vm.setzeAufErsteFolie = setzeAufErsteFolie;
             vm.setzeAufLetzteFolie = setzeAufLetzteFolie;
             vm.setzeAufVorherigeFolie = setzeAufVorherigeFolie;
-            vm.setzeAufNaechsteFolie = setzeAufNaechsteFolie;            
-
-            vm.hallo = function (text) {
-                alert('Master Hallo' + text);
-            }
+            vm.setzeAufNaechsteFolie = setzeAufNaechsteFolie;
 
             function getSlidesNavData() {
                 var result = [];
@@ -51,17 +47,18 @@
             function getSlidesViewData() {
                 var result = [];
                 vm.slides.forEach(function (item) {
-                    result.push([item[2], item[3], item[4] ]);
+                    result.push([item[2], item[3], item[4]]);
                 });
                 return result;
             }
 
-            function getCurrentSlide() {
-                return this.folie;
-            }
-
             function zeigeFolie(folienIndex) {
                 alert('Zeige Folie ' + folienIndex);
+                $scope.$broadcast( "slidecast.startAudio", folienIndex );
+            }
+
+            function getCurrentSlide() {
+                return this.folie;
             }
 
             function getLastIndex() {
