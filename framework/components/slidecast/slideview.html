@@ -1,14 +1,12 @@
 <h1 ng-bind="$ctrl.titel"></h1>
 
-<div class="presentation">
-
-</div>
+ <ng-transclude></ng-transclude>
 
  <div class="audio">
     <audio ng-repeat="slide in $ctrl.slidesdata" 
         id='{{$ctrl.getAudioId( $index )}}' 
         ng-show="$ctrl.slide == $index"
-        controls 
+        controls
     >
         <source id="{{$ctrl.getAudioId( $index )+'mp3'}}" 
                 data-ng-src="{{$ctrl.getAudioSrc( $index )}}"           

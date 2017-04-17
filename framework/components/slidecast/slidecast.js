@@ -1,7 +1,13 @@
 (function (angular) {
     'use strict';
 
-    var modul = angular.module('slidecastApp', []);
+//
+// Needs import in index.html to solve dependency 'ngSanitize'
+//
+// <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
+//
+
+    var modul = angular.module('slidecastApp', ['ngSanitize']);
 
     modul.component('slidecast', {
         bindings: {

@@ -10,6 +10,7 @@
             slide: '<',
             callback: '&'
         },
+        transclude: true,
         templateUrl: '../framework/components/slidecast/slideview.html',
         controller: function SlideviewController() {            
             var vm = this;

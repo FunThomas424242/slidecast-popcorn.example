@@ -4,7 +4,19 @@
     slide="$ctrl.folie"
     callback="$ctrl.hallo(text)"
 >
+
+    <div class="presentation" data-ng-repeat="folie in $ctrl.alleFolien" 
+         ng-show="$ctrl.folie == $index"
+         ng-bind-html="folie.innerHTML"
+    >
+    </div>
+
 </slideview>
+
+
+    
+</div>
+
 
 <slidebar 
     slidesdata="$ctrl.slidesNavData"
