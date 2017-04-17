@@ -6,7 +6,6 @@
     modul.component('slideview', {
         bindings: {
             slidesdata: '<',
-            index: '<',
             titel: '@',
             slide: '<',
             callback: '&'
