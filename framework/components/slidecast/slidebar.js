@@ -16,10 +16,7 @@
       onNext: '&',
       onSelect: '&',
       onChange: '&'
-    },
-    require: {
-      container: '^slidecast'
-    },
+    },   
     templateUrl: '../framework/components/slidecast/slidebar.html',
     controller: function SlidebarController() {
       this.$onInit = function () {
