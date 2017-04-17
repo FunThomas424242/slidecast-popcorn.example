@@ -17,7 +17,6 @@
     $(function(){
         AllSlides = $(".presentation .slide");
         AllSlides.vAlign();
-        AllMedia = $("audio");
     })  ;
 
 </script>
@@ -28,7 +27,7 @@
         slidesdata="$ctrl.slidesViewData"
         titel="{{$ctrl.titel}}" 
         slide="$ctrl.folie"
-        callback="$ctrl.play()"
+        callback="$ctrl.play( id )"
     >
         <div class="presentation">
 

@@ -18,7 +18,7 @@
 
             vm.start = function(){
                 alert('Starte: '+vm.slide);
-                vm.callback();
+                vm.callback( { id: vm.slidesdata[ vm.slide ][1] });
             }
 
             vm.getAudioId = function ( slideIndex ){

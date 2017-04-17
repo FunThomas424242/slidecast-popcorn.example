@@ -19,6 +19,7 @@
         templateUrl: '../framework/components/slidecast/slidecast.html',
         controller: function SlidecastController($window) {
             this.$onInit = function () {
+                this.play = window.Play;
                 this.alleMedien = window[this.mediaArrayName];
                 this.alleFolien = window[this.slidesArrayName];
                 this.slidesNavData = getSlidesNavData();
@@ -35,8 +36,7 @@
             vm.setzeAufErsteFolie = setzeAufErsteFolie;
             vm.setzeAufLetzteFolie = setzeAufLetzteFolie;
             vm.setzeAufVorherigeFolie = setzeAufVorherigeFolie;
-            vm.setzeAufNaechsteFolie = setzeAufNaechsteFolie;
-            vm.play = play;
+            vm.setzeAufNaechsteFolie = setzeAufNaechsteFolie;            
 
             vm.hallo = function (text) {
                 alert('Master Hallo' + text);
@@ -103,15 +103,15 @@
                 vm.zeigeFolie(vm.folie);
             }
 
-            function play(){
-                var popcorn = Popcorn( '#'+ vm.slides[ vm.folie ][3]);
-                popcorn.slide({
-                    start: 0, // seconds
-                    end: vm.slides[ vm.folie ][2] +1, // seconds
-                    slidenum: vm.folie
-                });
-                popcorn.play();
-            }
+            // function play(){
+            //     var popcorn = Popcorn( '#'+ vm.slides[ vm.folie ][3]);
+            //     popcorn.slide({
+            //         start: 0, // seconds
+            //         end: vm.slides[ vm.folie ][2] +1, // seconds
+            //         slidenum: vm.folie
+            //     });
+            //     popcorn.play();
+            // }
 
 
         }
