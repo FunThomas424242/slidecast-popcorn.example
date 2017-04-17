@@ -18,6 +18,14 @@
                 vm.callback({text: 'Blup'});
             }
 
+            vm.getAudioId = function (){
+                return "vorspann";
+            }
+
+            vm.getAudioSrc = function (){
+                return "files/folie1.mp3";
+            }
+
         }
     });
 

@@ -3,4 +3,10 @@
 <div class="presentation">
 
 </div>
+
+<audio id='{{$ctrl.getAudioId()}}' controls preload='none'>
+    <source id="{{$ctrl.getAudioId()+'mp3'}}" data-ng-src="{{$ctrl.getAudioSrc()}}">
+    <p>Ihr Browser unterstützt das HTML5 Video Element nicht :(</p>
+</audio>
+
 <button ng-click="$ctrl.start()">Start</button>
