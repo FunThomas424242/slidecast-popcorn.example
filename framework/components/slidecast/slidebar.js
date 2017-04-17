@@ -5,6 +5,7 @@
 
   modul.component('slidebar', {
     bindings: {
+      slidedata: '<',
       first: '<',
       prev: '<',
       next: '<',

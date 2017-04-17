@@ -9,7 +9,7 @@
 
     <select data-ng-model="$ctrl.folie" 
             data-ng-change="$ctrl.goToSelection( $ctrl.folie )"
-            ng-options="slide[1] as slide[0] for slide in $ctrl.container.slides"
+            ng-options="slide[1] as slide[0] for slide in $ctrl.slidedata"
             >
     </select>
     
