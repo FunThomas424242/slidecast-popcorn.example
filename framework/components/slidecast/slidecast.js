@@ -16,25 +16,29 @@
             slidesArrayName: '@'
         },
         templateUrl: '../framework/components/slidecast/slidecast.html',
-        controller: function SlidecastController($window, $scope) {
-            this.$onInit = function () {
-                this.play = window.Play;
-                this.alleFolien = $window[this.slidesArrayName];
-                this.slidesNavData = getSlidesNavData();
-                this.slidesViewData = getSlidesViewData();
-                this.folie = 0;
-            };
+        controller: function SlidecastController($window, $scope, $timeout) {
             var vm = this;
             vm.getSlidesNavData = getSlidesNavData;
             vm.getSlidesViewData = getSlidesNavData;
             vm.getCurrentSlide = getCurrentSlide;
-            vm.zeigeFolie = zeigeFolie;
+            vm.starteAudio = starteAudio;
             vm.getLastIndex = getLastIndex;
             vm.setzeAufFolie = setzeAufFolie;
             vm.setzeAufErsteFolie = setzeAufErsteFolie;
             vm.setzeAufLetzteFolie = setzeAufLetzteFolie;
             vm.setzeAufVorherigeFolie = setzeAufVorherigeFolie;
             vm.setzeAufNaechsteFolie = setzeAufNaechsteFolie;
+
+            this.$onInit = function () {               
+                this.play = $window.Play;
+                this.alleFolien = $window[this.slidesArrayName];
+                this.slidesNavData = getSlidesNavData();
+                this.slidesViewData = getSlidesViewData();
+                this.folie = 0;
+                $timeout( function(){
+                    $scope.$broadcast("slidecast.startAudio", vm.folie);
+                }, 1000);
+            };
 
             function getSlidesNavData() {
                 var result = [];
@@ -52,9 +56,8 @@
                 return result;
             }
 
-            function zeigeFolie(folienIndex) {
-                alert('Zeige Folie ' + folienIndex);
-                $scope.$broadcast( "slidecast.startAudio", folienIndex );
+            function starteAudio(folienIndex) {
+                $scope.$broadcast("slidecast.startAudio", folienIndex);
             }
 
             function getCurrentSlide() {
@@ -67,17 +70,17 @@
 
             function setzeAufFolie(folienIndex) {
                 vm.folie = folienIndex;
-                vm.zeigeFolie(vm.folie);
+                vm.starteAudio(vm.folie);
             }
 
             function setzeAufErsteFolie() {
                 vm.folie = 0;
-                vm.zeigeFolie(vm.folie);
+                vm.starteAudio(vm.folie);
             }
 
             function setzeAufLetzteFolie() {
                 vm.folie = vm.getLastIndex();
-                vm.zeigeFolie(vm.folie);
+                vm.starteAudio(vm.folie);
             }
 
             function setzeAufVorherigeFolie() {
@@ -86,7 +89,7 @@
                 if (vm.folie < minIndex) {
                     vm.folie = minIndex;
                 }
-                vm.zeigeFolie(vm.folie);
+                vm.starteAudio(vm.folie);
             }
 
             function setzeAufNaechsteFolie() {
@@ -95,7 +98,7 @@
                 if (vm.folie > lastIndex) {
                     vm.folie = lastIndex;
                 }
-                vm.zeigeFolie(vm.folie);
+                vm.starteAudio(vm.folie);
             }
 
         }
