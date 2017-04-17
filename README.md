@@ -1,5 +1,9 @@
 # slidecast.example
 
+## Demo
+
+* [Ein Audio mehrere Folien](http://funthomas424242.github.io/slidecast-popcorn.example/slidecast_001/demo-einaudio.html)
+* [Je Folie ein Audio](http://funthomas424242.github.io/slidecast-popcorn.example/slidecast_001/demo-audiojefolie.html)
 
 ## Quellen
 
