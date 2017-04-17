@@ -5,7 +5,7 @@
 
   modul.component('slidebar', {
     bindings: {
-      slidedata: '<',
+      slidesdata: '<',
       first: '<',
       prev: '<',
       next: '<',
@@ -61,8 +61,5 @@
     }
 
   });
-
-
-
 
 })(window.angular);

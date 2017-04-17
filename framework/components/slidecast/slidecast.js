@@ -14,10 +14,12 @@
         controller: function SlidecastController($window) {
             this.$onInit = function () {
                 this.alleMedien = window[this.mediaArrayName];
-                this.alleFolien = window[this.slidesArrayName];
+                this.alleFolien = window[this.slidesArrayName];                
+                this.slidesData = getSlidesData();
                 this.folie = 0;
             };
             var vm = this;
+            vm.getSlidesData = getSlidesData;
             vm.getCurrentSlide = getCurrentSlide;
             vm.zeigeFolie = zeigeFolie;
             vm.getLastIndex = getLastIndex;
@@ -31,7 +33,15 @@
                 alert('Master Hallo' + text);
             }
 
-            function getCurrentSlide(){
+            function getSlidesData() {
+                var result = [];
+                vm.slides.forEach(function (item) {
+                    result.push([item[0], item[1]]);
+                });
+                return result;
+            }
+
+            function getCurrentSlide() {
                 return this.folie;
             }
 
@@ -43,9 +53,9 @@
                 return vm.slides.length - 1;
             }
 
-            function setzeAufFolie( folienIndex ){
+            function setzeAufFolie(folienIndex) {
                 vm.folie = folienIndex;
-                vm.zeigeFolie( vm.folie );
+                vm.zeigeFolie(vm.folie);
             }
 
             function setzeAufErsteFolie() {
