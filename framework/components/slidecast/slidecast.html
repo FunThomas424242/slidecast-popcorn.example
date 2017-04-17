@@ -1,6 +1,14 @@
-<slideview index="1" titel="{{$ctrl.titel}}" callback="$ctrl.hallo(text)"></slideview>
+<slideview 
+    slidesdata="$ctrl.slidesViewData"
+    index="1" 
+    titel="{{$ctrl.titel}}" 
+    on-change="$ctrl.getCurrentSlide()"
+    callback="$ctrl.hallo(text)"
+>
+</slideview>
+
 <slidebar 
-    slidesdata="$ctrl.slidesData"
+    slidesdata="$ctrl.slidesNavData"
     first="'Erste Folie'"
     prev="'Zurück'"
     next="'Vorwärts'"
@@ -11,4 +19,5 @@
     on-next="$ctrl.setzeAufNaechsteFolie()"
     on-select="$ctrl.setzeAufFolie( folienIndex )"
     on-change="$ctrl.getCurrentSlide()"
-></slidebar>
+>
+</slidebar>

@@ -5,13 +5,16 @@
 
     modul.component('slideview', {
         bindings: {
+            slidesdata: '<',
             index: '<',
             titel: '@',
+            onChange: '&',
             callback: '&'
         },
         templateUrl: '../framework/components/slidecast/slideview.html',
-        controller: function SlideviewController() {
+        controller: function SlideviewController() {            
             var vm = this;
+            
 
             vm.start = function(){
                 alert('Böse: '+vm.titel);
@@ -19,11 +22,13 @@
             }
 
             vm.getAudioId = function (){
-                return "vorspann";
+                var slideIndex = vm.onChange();
+                return vm.slidesdata[slideIndex][1];
             }
 
             vm.getAudioSrc = function (){
-                return "files/folie1.mp3";
+                var slideIndex = vm.onChange();                
+                return vm.slidesdata[slideIndex][2];
             }
 
         }
