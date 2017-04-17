@@ -12,25 +12,25 @@
         },
         templateUrl: '../framework/components/slidecast/slidecast.html',
         controller: function SlidecastController($window) {
+            this.$onInit = function () {
+                this.alleMedien = window[this.mediaArrayName];
+                this.alleFolien = window[this.slidesArrayName];
+            };
             var vm = this;
             vm.zeigeFolie = zeigeFolie;
             vm.getLastIndex = getLastIndex;
 
 
-
-            this.hallo = function (text) {
+            vm.hallo = function (text) {
                 alert('Master Hallo' + text);
-                vm.alleMedien = window[this.mediaArrayName];
-                vm.alleFolien = window[this.slidesArrayName];
-
             }
 
             function getLastIndex() {
-                return this.slides.length - 1;
+                return vm.slides.length - 1;
             }
 
-            function zeigeFolie(folie) {
-                alert('Zeige Folie ' + folie);
+            function zeigeFolie(folienIndex) {
+                alert('Zeige Folie ' + folienIndex);
             }
         }
 

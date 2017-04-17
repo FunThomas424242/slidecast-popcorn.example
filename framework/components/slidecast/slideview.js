@@ -11,10 +11,11 @@
         },
         templateUrl: '../framework/components/slidecast/slideview.html',
         controller: function SlideviewController() {
+            var vm = this;
 
-            this.start = function(){
-                alert('Böse: '+this.titel);
-                this.callback({text: 'Blup'});
+            vm.start = function(){
+                alert('Böse: '+vm.titel);
+                vm.callback({text: 'Blup'});
             }
 
         }

@@ -10,12 +10,8 @@
     },
     controller: function SlidebarController() {
       this.$onInit = function () {
-        this.folie = 3;
-      };
-      this.$postLink = function () {
         this.folie = 0;
-      }
-
+      };
       var vm = this;
       vm.setzeAufErsteFolie = setzeAufErsteFolie;
       vm.setzeAufLetzteFolie = setzeAufLetzteFolie;
@@ -57,15 +53,15 @@
       }
 
       function geheZurFolie() {
-        this.container.zeigeFolie(vm.folie);
+        vm.container.zeigeFolie(vm.folie);
       }
 
       function ermittleLetztenIndex() {
-        return this.container.getLastIndex();
+        return vm.container.getLastIndex();
       }
 
       function getFolienTitel(folienIndex) {
-        return this.container.slides[folienIndex][0];
+        return vm.container.slides[folienIndex][0];
       }
 
       function getLetztenFolienTitel() {
