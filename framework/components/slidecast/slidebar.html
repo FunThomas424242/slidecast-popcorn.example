@@ -1,26 +1,23 @@
 <div class="navigation">
-    <button data-ng-click="$ctrl.setzeAufErsteFolie()" 
-            data-ng-bind="$ctrl.getFolienTitel( 0 )">
+    <button data-ng-click="$ctrl.goToFirst()" 
+            data-ng-bind="$ctrl.first">
     </button>
     
-    <button data-ng-click="$ctrl.setzeAufVorherigeFolie()" 
-            data-ng-bind="'Vorherige Folie'">
+    <button data-ng-click="$ctrl.goToPrev()" 
+            data-ng-bind="$ctrl.prev">
     </button>
 
     <select data-ng-model="$ctrl.folie" 
-            data-ng-change="$ctrl.geheZurFolie()"
+            data-ng-change="$ctrl.goToSelection( $ctrl.folie )"
             ng-options="slide[1] as slide[0] for slide in $ctrl.container.slides"
             >
-
-       
-
     </select>
     
-    <button data-ng-click="$ctrl.setzeAufNaechsteFolie()" 
-            data-ng-bind="'Nächste Folie'">
+    <button data-ng-click="$ctrl.goToNext()" 
+            data-ng-bind="$ctrl.next">
     </button>
 
-    <button data-ng-click="$ctrl.setzeAufLetzteFolie()" 
-            data-ng-bind="$ctrl.getLetztenFolienTitel()">
+    <button data-ng-click="$ctrl.goToLast()" 
+            data-ng-bind="$ctrl.last">
     </button>
 </div>
