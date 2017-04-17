@@ -1,4 +1,4 @@
-# slidecast.example
+# slidecast-popcorn.example
 
 ## Demo
 
