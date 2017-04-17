@@ -17,8 +17,8 @@
             
 
             vm.start = function(){
-                alert('Böse: '+vm.titel);
-                vm.callback({text: 'Blup'});
+                alert('Starte: '+vm.slide);
+                vm.callback();
             }
 
             vm.getAudioId = function ( slideIndex ){

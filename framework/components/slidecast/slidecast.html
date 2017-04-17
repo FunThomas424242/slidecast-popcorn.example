@@ -1,34 +1,60 @@
-<slideview 
-    slidesdata="$ctrl.slidesViewData"
-    titel="{{$ctrl.titel}}" 
-    slide="$ctrl.folie"
-    callback="$ctrl.hallo(text)"
->
+<script type="text/javascript">
 
-    <div class="presentation" data-ng-repeat="folie in $ctrl.alleFolien" 
-         ng-show="$ctrl.folie == $index"
-         ng-bind-html="folie.innerHTML"
+    var AllSlides = "" ;
+
+    (function ($) {
+        // VERTICALLY ALIGN FUNCTION
+        $.fn.vAlign = function () {
+            return this.each(function (i) {
+                var ah = $(this).height();
+                var ph = $(this).parent().height();
+                var mh = Math.ceil((ph - ah) / 2);
+                $(this).css('margin-top', mh);
+            });
+        };
+    })(jQuery);
+
+    $(function(){
+        AllSlides = $(".presentation .slide");
+        AllSlides.vAlign();
+        AllMedia = $("audio");
+    })  ;
+
+</script>
+
+<div align="center" class="main">
+        
+    <slideview 
+        slidesdata="$ctrl.slidesViewData"
+        titel="{{$ctrl.titel}}" 
+        slide="$ctrl.folie"
+        callback="$ctrl.play()"
     >
-    </div>
+        <div class="presentation">
 
-</slideview>
+            <div class="slide" data-ng-repeat="folie in $ctrl.alleFolien" 
+                ng-show="$ctrl.folie == $index"
+                ng-bind-html="folie.innerHTML"
+            >
+            </div>
 
+        </div>
 
-    
+    </slideview>
+
+    <slidebar 
+        slidesdata="$ctrl.slidesNavData"
+        first="'Erste Folie'"
+        prev="'Zurück'"
+        next="'Vorwärts'"
+        last="'Letzte Folie'"
+        on-first="$ctrl.setzeAufErsteFolie()"
+        on-last="$ctrl.setzeAufLetzteFolie()"
+        on-prev="$ctrl.setzeAufVorherigeFolie()"
+        on-next="$ctrl.setzeAufNaechsteFolie()"
+        on-select="$ctrl.setzeAufFolie( folienIndex )"
+        on-change="$ctrl.getCurrentSlide()"
+    >
+    </slidebar>
+
 </div>
-
-
-<slidebar 
-    slidesdata="$ctrl.slidesNavData"
-    first="'Erste Folie'"
-    prev="'Zurück'"
-    next="'Vorwärts'"
-    last="'Letzte Folie'"
-    on-first="$ctrl.setzeAufErsteFolie()"
-    on-last="$ctrl.setzeAufLetzteFolie()"
-    on-prev="$ctrl.setzeAufVorherigeFolie()"
-    on-next="$ctrl.setzeAufNaechsteFolie()"
-    on-select="$ctrl.setzeAufFolie( folienIndex )"
-    on-change="$ctrl.getCurrentSlide()"
->
-</slidebar>
