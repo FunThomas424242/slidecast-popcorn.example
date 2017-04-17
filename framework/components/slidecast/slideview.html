@@ -4,8 +4,14 @@
 
 </div>
 
-<audio id='{{$ctrl.getAudioId()}}' controls preload='none'>
-    <source id="{{$ctrl.getAudioId()+'mp3'}}" data-ng-src="{{$ctrl.getAudioSrc()}}">
+<audio ng-repeat="slide in $ctrl.slidesdata" 
+       id='{{$ctrl.getAudioId( $index )}}' 
+       ng-show="$ctrl.slide == $index"
+       controls 
+>
+    <source id="{{$ctrl.getAudioId( $index )+'mp3'}}" 
+            data-ng-src="{{$ctrl.getAudioSrc( $index )}}"           
+    >
     <p>Ihr Browser unterstützt das HTML5 Video Element nicht :(</p>
 </audio>
 
